@@ -47,7 +47,7 @@ def app():
         #set the number of hidden layers
         hidden_layers = st.slider('No. of hidden layers', 5, 15, 10)
         #set the number or iterations
-        epochs = st.slider('Max Iterations', 50, 250, 100, 10)
+        epochs = st.slider('Number of epochs', 50, 250, 100, 10)
         if st.button('Run the Classifier'):
             #load the data and the labels
             X = df.values[:,0:-1]
