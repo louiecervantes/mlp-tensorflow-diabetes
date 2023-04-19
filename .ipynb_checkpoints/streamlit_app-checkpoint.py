@@ -13,6 +13,8 @@ from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Flatten
 from tensorflow.keras.layers import Dense
 from tensorflow.keras.layers import Activation
+import sys
+from contextlib import redirect_stdout
 
 
 # Define the Streamlit app
@@ -70,8 +72,9 @@ def app():
             model.compile(loss='mse', optimizer='adam', metrics=['mae'])
 
             # Train the model
-            history = model.fit(X_train, y_train, epochs=epochs, validation_split=0.2)  
-            st.write(history)
+            with redirect_stdout(st):
+                history = model.fit(X_train, y_train, epochs=epochs, validation_split=0.2)  
+           
 
             # Evaluate the model
             test_loss, test_mae = model.evaluate(X_test, y_test)
