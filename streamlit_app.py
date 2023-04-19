@@ -71,6 +71,7 @@ def app():
 
             # Train the model
             history = model.fit(X_train, y_train, epochs=epochs, validation_split=0.2)  
+            st.write(history)
 
             # Evaluate the model
             test_loss, test_mae = model.evaluate(X_test, y_test)
