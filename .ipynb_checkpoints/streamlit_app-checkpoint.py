@@ -86,12 +86,16 @@ def app():
             st.write(f'R^2: {r2}')
 
             
-    st.write('Run the NN Classifier several times and try various settings \
-            for the number of layers and iterations by moving the sliders.')
-    st.write('Notice that even if the settings are the same, \
-            the results vary due to the random weights assigned in \
-            the hidden layers.')          
-
+    st.write('In this version of the MLP we used the Keras library running on Tensorflow.  \
+            Keras is a high-level neural network library written in Python that can run \
+            on top of TensorFlow, Theano, and other machine learning frameworks. \
+            It was developed to make deep learning more accessible and easy to use \
+            for researchers and developers.  TensorFlow provides a platform for \
+            building and deploying machine learning models. It is designed to \
+            be scalable and can be used to build models ranging from small experiments\
+            to large-scale production systems. TensorFlow supports a wide range of \
+            machine learning algorithms, including deep learning, linear regression, \
+            logistic regression, decision trees, and many others.')        
    
 #run the app
 if __name__ == "__main__":
