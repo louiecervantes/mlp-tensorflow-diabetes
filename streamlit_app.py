@@ -70,8 +70,16 @@ def app():
             # Compile the model
             model.compile(loss='mse', optimizer='adam', metrics=['mae'])
 
+            # define a callback to write the output of each epoch to streamlit
+            class EpochCallback(tf.keras.callbacks.Callback):
+                def on_epoch_end(self, epoch, logs={}):
+                    st.text(f"Epoch {epoch+1}: loss={logs['loss']:.4f}, acc={logs['accuracy']:.4f}\n")
+
+            callback = EpochCallback()
+                        
+            
             # Train the model
-            history = model.fit(X_train, y_train, epochs=epochs, validation_split=0.2)  
+            history = model.fit(X_train, y_train, epochs=epochs, validation_split=0.2, callbacks=[callback])  
            
 
             # Evaluate the model
