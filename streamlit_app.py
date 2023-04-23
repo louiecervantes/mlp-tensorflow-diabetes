@@ -87,7 +87,7 @@ def app():
             st.write(f'Test Loss: {test_loss}, Test MAE: {test_mae}')
 
             # Make predictions on test data
-            y_pred = model.predict(X_test)
+            y_pred = model.predict(X_test, callbacks=[callback])
 
             # Calculate the coefficient of determination (R^2)
             r2 = 1 - (np.sum((y_test - y_pred)**2) / np.sum((y_test - np.mean(y_test))**2))
