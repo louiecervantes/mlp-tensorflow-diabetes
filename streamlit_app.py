@@ -73,7 +73,7 @@ def app():
             # define a callback to write the output of each epoch to streamlit
             class EpochCallback(tf.keras.callbacks.Callback):
                 def on_epoch_end(self, epoch, logs={}):
-                    st.text(f"Epoch {epoch+1}: loss={logs['loss']:.4f}, test_mae={logs['test_mae']:.4f}\n")
+                    st.text(f"Epoch {epoch+1}: loss={logs['loss']:.4f}, mae={logs['mae']:.4f}\n")
 
             callback = EpochCallback()
                         
