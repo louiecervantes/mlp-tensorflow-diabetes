@@ -45,7 +45,7 @@ def app():
     st.subheader('Configuring the Neural Net')
     with st.echo(code_location='below'):
         #set the number of hidden layers
-        hidden_layers = st.slider('No. of hidden layers', 5, 15, 10)
+        neurons = st.slider('No. of neurons in the hidden layer', 5, 15, 10)
         #set the number or iterations
         epochs = st.slider('Number of epochs', 50, 250, 100, 10)
         if st.button('Run the Classifier'):
@@ -63,7 +63,7 @@ def app():
 
             # Define the model
             model = tf.keras.models.Sequential([
-              tf.keras.layers.Dense(hidden_layers, activation='relu', input_shape=(X_train.shape[1],)),
+              tf.keras.layers.Dense(neurons, activation='relu', input_shape=(X_train.shape[1],)),
               tf.keras.layers.Dense(1)
             ])
 
