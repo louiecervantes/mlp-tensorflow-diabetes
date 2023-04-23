@@ -77,7 +77,7 @@ def app():
 
             callback = EpochCallback()
                         
-             st.write('The output after each epoch is shown below:')
+            st.write('The output after each epoch is shown below:')
             # Train the model
             history = model.fit(X_train, y_train, epochs=epochs, validation_split=0.2, callbacks=[callback])  
            
