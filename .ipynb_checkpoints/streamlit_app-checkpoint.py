@@ -77,13 +77,13 @@ def app():
 
             callback = EpochCallback()
                         
-            
+             st.write('The output after each epoch is shown below:')
             # Train the model
             history = model.fit(X_train, y_train, epochs=epochs, validation_split=0.2, callbacks=[callback])  
            
             st.write('We evaluate the model using the evaluate() function...')
             # Evaluate the model
-            test_loss, test_mae = model.evaluate(X_test, y_test, callbacks=[callback])
+            test_loss, test_mae = model.evaluate(X_test, y_test)
             st.write(f'Test Loss: {test_loss}, Test MAE: {test_mae}')
 
             st.write('Making predictions on the test data...')
